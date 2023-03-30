@@ -24,11 +24,11 @@ http://62.217.180.104/
 
 Продавец
 - login - dada
-- passwonrd - 1234
+- password - 1234
 
 Администратор
  - login - admin
- - passwonrd - 1234
+ - password - 1234
 
 # Запуск на локальной машине
 
