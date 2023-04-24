@@ -33,14 +33,6 @@ pipeline {
                 '''
             }
         }
-        stage('Перезапуск сервера') {
-            steps {
-                echo 'Выполняем перезапуск сервера'
-                sh '''#!/bin/bash
-                    systemctl restart server-service.service
-                '''
-            }
-        }
     }
 }
 
