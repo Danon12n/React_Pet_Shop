@@ -35,7 +35,7 @@ const Card: FC<CardProps> = ({ pet }) => {
     return (
         <div className={styles.cardWrapper}>
             <div className={styles.cardImgWrapper}>
-                <img src={pic} width={319} height={223} alt='Kitty pic' />
+                <img src={pet.img_url} width={319} height={223} alt={pic} />
             </div>
             <div className={styles.cardContent}>
                 <div className={styles.cardOption}>

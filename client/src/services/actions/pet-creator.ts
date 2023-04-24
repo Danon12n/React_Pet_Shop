@@ -20,6 +20,7 @@ import {
     SET_PET_SHOP_ID,
     SET_PET_TYPE,
     SET_PET_CREATOR_MODE,
+    SET_PET_IMG_URL,
 } from "../action-types/pet-creator";
 import { store } from "../store";
 
@@ -76,6 +77,10 @@ export interface ISetPetType {
     readonly type: typeof SET_PET_TYPE;
     readonly payload: TPetType;
 }
+export interface ISetPetImgUrl {
+    readonly type: typeof SET_PET_IMG_URL;
+    readonly payload: string;
+}
 
 export type TPetCreatorActions =
     | ISetPet
@@ -90,7 +95,8 @@ export type TPetCreatorActions =
     | ISetPetName
     | ISetPetPrice
     | ISetPetShopId
-    | ISetPetType;
+    | ISetPetType
+    | ISetPetImgUrl;
 
 //types
 
@@ -148,6 +154,10 @@ const doSetPetType = (type: TPetType): ISetPetType => ({
     type: "SET_PET_TYPE",
     payload: type,
 });
+const doSetPetImgUrl = (img_url: string): ISetPetImgUrl => ({
+    type: "SET_PET_IMG_URL",
+    payload: img_url,
+});
 
 export const boundPetCreator = bindActionCreators(
     {
@@ -164,6 +174,7 @@ export const boundPetCreator = bindActionCreators(
         setPetGender: doSetPetGender,
         setPetColor: doSetPetColor,
         setPetBreed: doSetPetBreed,
+        setPetImgUrl: doSetPetImgUrl,
     },
     store.dispatch
 );

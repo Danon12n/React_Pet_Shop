@@ -89,12 +89,23 @@ const Filter: FC<FilterProps> = () => {
             <p className={styles.filterTitle}>Фильтр</p>
             <MyDropMenu
                 id='petType'
-                options={["Any", "Cat", "Dog", "Hedgehog", "Raccoon", "Fox"]}
+                options={[
+                    "Any",
+                    "Черепаха",
+                    "Коала",
+                    "Ленивец",
+                    "Улитка",
+                    "Ядозуб",
+                    "Лори",
+                    "Слизень",
+                    "Морская звезда",
+                    "Морской конек",
+                ]}
                 title='Вид'
             />
             <MyDropMenu
                 id='petGender'
-                options={["Any", "Male", "Female"]}
+                options={["Any", "Самец", "Самка", "Не определен"]}
                 title='Пол'
             />
             <MyDropMenu

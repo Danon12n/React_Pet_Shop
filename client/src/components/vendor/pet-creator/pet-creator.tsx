@@ -74,14 +74,25 @@ const PetsCreator: FC<PetsCreatorProps> = () => {
                 <div className={styles.leftContent}>
                     <MyDropMenu
                         id='petType'
-                        options={["Cat", "Dog", "Hedgehog", "Raccoon", "Fox"]}
+                        options={[
+                            "Any",
+                            "Черепаха",
+                            "Коала",
+                            "Ленивец",
+                            "Улитка",
+                            "Ядозуб",
+                            "Лори",
+                            "Слизень",
+                            "Морская звезда",
+                            "Морской конек",
+                        ]}
                         title='Вид'
                         value={pet.pet_type}
                         changeHandler={boundPetCreator.setPetType}
                     />
                     <MyDropMenu
                         id='petGender'
-                        options={["Male", "Female"]}
+                        options={["Any", "Самец", "Самка", "Не определен"]}
                         title='Пол'
                         value={pet.gender}
                         changeHandler={boundPetCreator.setPetGender}
@@ -163,6 +174,17 @@ const PetsCreator: FC<PetsCreatorProps> = () => {
                             }}
                             type='number'
                             placeholder='Введите текст'
+                        />
+                    </div>
+                    <div>
+                        <p>Ссылка на изображение</p>
+                        <MyInput
+                            value={pet.img_url}
+                            onChange={(e) => {
+                                boundPetCreator.setPetImgUrl(e.target.value);
+                            }}
+                            type='text'
+                            placeholder='Вставьте ссылку'
                         />
                     </div>
                 </div>
