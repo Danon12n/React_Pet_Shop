@@ -1,3 +1,4 @@
+import { stat } from "fs";
 import { TPet, TPetCreatorMode } from "../../../types/types";
 import { TPetCreatorActions } from "../../actions/pet-creator";
 
@@ -93,6 +94,11 @@ export const petCreatorReducer = (
             return {
                 ...state,
                 pet: { ...state.pet, pet_type: action.payload },
+            };
+        case "SET_PET_IMG_URL":
+            return {
+                ...state,
+                pet: { ...state.pet, img_url: action.payload },
             };
         default:
             return state;
