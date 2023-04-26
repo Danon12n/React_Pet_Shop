@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import styles from "./home-page.module.css";
 import { CardsList } from "../../components/cards-list/cards-list";
 import { Filter } from "../../components/filter/filter";
@@ -7,9 +7,8 @@ import { TPet, TStore } from "../../types/types";
 import { useSelector } from "react-redux";
 import { boundPets } from "../../services/actions/pets";
 import { TPetsState } from "../../services/reducers/pets/pets";
-interface HomePageProps {}
 
-const HomePage: FC<HomePageProps> = ({}) => {
+const HomePage: FC = () => {
     const { filteredPets } = useSelector<TStore, TPetsState>(
         (store) => store.pets
     );

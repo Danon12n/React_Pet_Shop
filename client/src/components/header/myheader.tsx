@@ -8,7 +8,7 @@ import { TStore } from "../../types/types";
 
 interface MyHeaderProps {}
 
-const MyHeader: FC<MyHeaderProps> = ({}) => {
+const MyHeader: FC<MyHeaderProps> = () => {
     const { user } = useSelector<TStore, TUserState>((store) => store.user);
     const type = user.role;
     return (

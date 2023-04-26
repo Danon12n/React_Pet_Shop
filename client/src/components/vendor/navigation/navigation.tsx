@@ -4,9 +4,7 @@ import { MyButton } from "../../ui/button/mybutton";
 import styles from "./navigation.module.css";
 import { boundPetCreator } from "../../../services/actions/pet-creator";
 
-interface NavigationProps {}
-
-const Navigation: FC<NavigationProps> = ({}) => {
+const Navigation: FC = () => {
     return (
         <div className={styles.buttonsWrapper}>
             <Link className={styles.myLink} to='/vendor/orders'>

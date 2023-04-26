@@ -4,9 +4,8 @@ import { Navigation } from "../../components/vendor/navigation/navigation";
 import { VendorOrders } from "../../components/vendor/vendor-orders/vendor-orders";
 import { PetsCreator } from "../../components/vendor/pet-creator/pet-creator";
 import { CreatedPets } from "../../components/vendor/created-pets/created-pets";
-interface VendorMenuPageProps {}
 
-const VendorMenuPage: FC<VendorMenuPageProps> = ({}) => {
+const VendorMenuPage: FC = () => {
     const { pathname } = useLocation();
 
     return (

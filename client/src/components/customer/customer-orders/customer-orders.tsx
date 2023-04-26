@@ -102,6 +102,7 @@ const CustomerOrders: FC<CustomerOrdersProps> = () => {
                     icons: [...newIcons],
                 });
             });
+        // eslint-disable-next-line
     }, [toggleUpdateTable, setToggleUpdateTable]);
 
     if (tableData.body.length === 0) {

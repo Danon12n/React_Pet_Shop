@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../utils/user-api";
 import { useFormik } from "formik";
 
-interface LoginPageProps {}
-
-const LoginPage: FC<LoginPageProps> = ({}) => {
+const LoginPage: FC = () => {
     const formik = useFormik({
         initialValues: {
             login: "",

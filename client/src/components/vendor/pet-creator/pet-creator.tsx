@@ -31,13 +31,14 @@ const PetsCreator: FC<PetsCreatorProps> = () => {
             boundPetCreator.setPet(JSON.parse(savedForm));
         }
         setToggleGetForm(true);
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         if (toggleGetForm) {
             localStorage.setItem("petCreationForm", JSON.stringify(pet));
         }
-    }, [pet]);
+    }, [pet, toggleGetForm]);
 
     const handleSubmit: React.FormEventHandler = (e) => {
         e.preventDefault();

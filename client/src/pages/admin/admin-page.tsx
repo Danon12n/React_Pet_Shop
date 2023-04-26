@@ -17,9 +17,7 @@ import { TPetsState } from "../../services/reducers/pets/pets";
 import { TUserState } from "../../services/reducers/user/user";
 import { DeleteIcon } from "../../components/ui/icons/icons";
 
-interface AdminMenuPageProps {}
-
-const AdminMenuPage: FC<AdminMenuPageProps> = ({}) => {
+const AdminMenuPage: FC = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [shop, setShop] = useState("NULL");
     const [selectedUser, setSelectedUser] = useState<TUserClient>({
@@ -83,6 +81,7 @@ const AdminMenuPage: FC<AdminMenuPageProps> = ({}) => {
             });
             setTableData({ ...tableData, body: [...newBody] });
         });
+        // eslint-disable-next-line
     }, [users]);
 
     return (

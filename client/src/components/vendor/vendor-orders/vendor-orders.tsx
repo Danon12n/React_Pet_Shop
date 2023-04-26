@@ -98,6 +98,7 @@ const VendorOrders: FC = () => {
                     icons: [...newIcons],
                 });
             });
+        // eslint-disable-next-line
     }, [toggleUpdateTable, setToggleUpdateTable]);
 
     useEffect(() => {

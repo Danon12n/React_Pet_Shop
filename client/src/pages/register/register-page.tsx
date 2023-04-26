@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import { register } from "../../utils/user-api";
 import { useForm } from "../../hooks/useForm";
 
-interface RegisterPageProps {}
-
-const RegisterPage: FC<RegisterPageProps> = ({}) => {
+const RegisterPage: FC = () => {
     const { values, handleChange } = useForm({
         name: "",
         surname: "",

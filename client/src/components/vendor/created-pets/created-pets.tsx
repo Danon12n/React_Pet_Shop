@@ -8,9 +8,8 @@ import { DeleteIcon, EditIcon } from "../../ui/icons/icons";
 import { MyTable } from "../../ui/table/mytable";
 import { boundPetCreator } from "../../../services/actions/pet-creator";
 import { Redirect } from "react-router";
-interface CreatedPetsProps {}
 
-const CreatedPets: FC<CreatedPetsProps> = () => {
+const CreatedPets: FC = () => {
     const { user } = useSelector<TStore, TUserState>((store) => store.user);
     const [toggleUpdateTable, setToggleUpdateTable] = useState(-1);
     const { shops, pets } = useSelector<TStore, TPetsState>(
@@ -91,6 +90,7 @@ const CreatedPets: FC<CreatedPetsProps> = () => {
 
     useEffect(() => {
         getTableData();
+        // eslint-disable-next-line
     }, [toggleUpdateTable]);
 
     if (toggleRedirect) return <Redirect to={"/vendor/petsCreation"} />;
