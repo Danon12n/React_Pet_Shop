@@ -1,65 +1,76 @@
-import { FC, FormEventHandler } from "react";
+import { FC } from "react";
 import styles from "./register-page.module.css";
 import { MyInput } from "../../components/ui/input/myinput";
 import { MyButton } from "../../components/ui/button/mybutton";
 import { Link } from "react-router-dom";
 import { register } from "../../utils/user-api";
-import { useForm } from "../../hooks/useForm";
+import { useFormik } from "formik";
 
 const RegisterPage: FC = () => {
-    const { values, handleChange } = useForm({
-        name: "",
-        surname: "",
-        telephone: "",
-        login: "",
-        password: "",
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            surname: "",
+            telephone: "",
+            login: "",
+            password: "",
+        },
+        onSubmit: (values) => {
+            register(values);
+        },
     });
-    const onFormSubmit: FormEventHandler = (e) => {
-        e.preventDefault();
-        register(values);
-    };
     return (
-        <form onSubmit={onFormSubmit} className={styles.RegisterPageContent}>
+        <form
+            onSubmit={formik.submitForm}
+            className={styles.RegisterPageContent}
+        >
             <p>Регистрация</p>
             <div className={styles.inputsWrapper}>
                 <MyInput
-                    value={values.name}
-                    onChange={handleChange}
+                    id='name'
                     name='name'
+                    type='text'
                     placeholder='Имя'
-                    type={"text"}
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
                 />
                 <MyInput
-                    value={values.surname}
-                    onChange={handleChange}
+                    id='surname'
                     name='surname'
+                    type='text'
                     placeholder='Фамилия'
-                    type={"text"}
+                    value={formik.values.surname}
+                    onChange={formik.handleChange}
                 />
                 <MyInput
-                    value={values.telephone}
-                    onChange={handleChange}
+                    id='telephone'
                     name='telephone'
+                    type='tel'
                     placeholder='Телефон'
-                    type={"tel"}
+                    value={formik.values.telephone}
+                    onChange={formik.handleChange}
                 />
                 <MyInput
-                    value={values.login}
-                    onChange={handleChange}
+                    id='login'
                     name='login'
+                    type='email'
                     placeholder='Логин'
-                    type={"text"}
+                    value={formik.values.login}
+                    onChange={formik.handleChange}
                 />
                 <MyInput
-                    value={values.password}
-                    onChange={handleChange}
+                    id='password'
                     name='password'
+                    type='password'
                     placeholder='Пароль'
-                    type={"password"}
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
                 />
             </div>
             <div className={styles.buttonsWrapper}>
-                <MyButton skin='primary'>Зарегистрироваться</MyButton>
+                <MyButton type='submit' skin='primary'>
+                    Зарегистрироваться
+                </MyButton>
                 <Link className={styles.Link} to={"/login"}>
                     <MyButton skin='primary'>Назад</MyButton>
                 </Link>
