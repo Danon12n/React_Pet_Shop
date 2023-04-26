@@ -42,6 +42,8 @@ const PetsCreator: FC<PetsCreatorProps> = () => {
     const handleSubmit: React.FormEventHandler = (e) => {
         e.preventDefault();
         if (mode === "Create") {
+            console.log(pet);
+
             createPet({ ...pet });
         } else {
             updatePet({ ...pet })
