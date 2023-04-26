@@ -1,43 +1,50 @@
-import { FC, FormEventHandler } from "react";
+import { FC } from "react";
 import { MyInput } from "../../components/ui/input/myinput";
 import { MyButton } from "../../components/ui/button/mybutton";
 import styles from "./login-page.module.css";
 import { Link } from "react-router-dom";
-import { useForm } from "../../hooks/useForm";
 import { auth } from "../../utils/user-api";
+import { useFormik } from "formik";
 
 interface LoginPageProps {}
 
 const LoginPage: FC<LoginPageProps> = ({}) => {
-    const { values, handleChange } = useForm({
-        login: "",
-        password: "",
+    const formik = useFormik({
+        initialValues: {
+            login: "",
+            password: "",
+        },
+        onSubmit: (values) => {
+            auth(values);
+        },
     });
-    const onFormSubmit: FormEventHandler = (e) => {
-        e.preventDefault();
-        auth(values);
-    };
     return (
-        <form onSubmit={onFormSubmit} className={styles.LoginPageContent}>
+        <form
+            className={styles.LoginPageContent}
+            onSubmit={formik.handleSubmit}
+        >
             <p>Авторизация</p>
-            <div className={styles.inputsWrapper}>
-                <MyInput
-                    value={values.login}
-                    onChange={handleChange}
-                    name='login'
-                    placeholder='Логин'
-                    type={"text"}
-                />
-                <MyInput
-                    value={values.password}
-                    onChange={handleChange}
-                    name='password'
-                    placeholder='Пароль'
-                    type={"password"}
-                />
-            </div>
+            <MyInput
+                id='login'
+                name='login'
+                type='login'
+                placeholder='Логин'
+                onChange={formik.handleChange}
+                value={formik.values.login}
+            />
+            <MyInput
+                id='password'
+                name='password'
+                type='password'
+                placeholder='Пароль'
+                onChange={formik.handleChange}
+                value={formik.values.password}
+            />
+
             <div className={styles.buttonsWrapper}>
-                <MyButton skin='primary'>Вход</MyButton>
+                <MyButton type='submit' skin='primary'>
+                    Вход
+                </MyButton>
                 <Link className={styles.Link} to={"/register"}>
                     <MyButton skin='primary'>Регистрация</MyButton>
                 </Link>

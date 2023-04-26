@@ -1,4 +1,4 @@
-import { TPet, TUserClient } from "../../../types/types";
+import { TUserClient } from "../../../types/types";
 import { TUserAction } from "../../actions/user";
 
 export type TUserState = {

@@ -1,6 +1,6 @@
 import { store } from "../store";
 import { bindActionCreators } from "redux";
-import { SET_AUTHED, SET_USER, SET_USERS, LOGOUT } from "../action-types/user";
+import { SET_USER, SET_USERS, LOGOUT } from "../action-types/user";
 import { TUserClient } from "../../types/types";
 
 //types

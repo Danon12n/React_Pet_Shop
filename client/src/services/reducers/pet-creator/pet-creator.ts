@@ -1,4 +1,3 @@
-import { stat } from "fs";
 import { TPet, TPetCreatorMode } from "../../../types/types";
 import { TPetCreatorActions } from "../../actions/pet-creator";
 
@@ -6,7 +5,6 @@ export type TPetCreatorState = {
     pet: TPet;
     mode: TPetCreatorMode;
 };
-const savedPet = JSON.parse(localStorage.getItem("petCreationForm") as string);
 const initialState = {
     pet: {
         pet_id: -1,
