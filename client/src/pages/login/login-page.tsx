@@ -25,7 +25,7 @@ const LoginPage: FC = () => {
             <MyInput
                 id='login'
                 name='login'
-                type='text'
+                type='email'
                 placeholder='Логин'
                 onChange={formik.handleChange}
                 value={formik.values.login}
